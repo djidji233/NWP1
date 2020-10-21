@@ -12,11 +12,12 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   private readonly usersUrl = 'http://localhost:8080/users'
+  private authorization = "Bearer "+localStorage.getItem("jwt")
   private users: Observable<User[]>
 
   constructor(private http: HttpClient) {
-    // this.users = [new User(0, "Pera", "Peric", "12334567890"),
-    //               new User(1, "Laza", "Lazic", "0987654321")]
+      // this.users = [new User(0, "Pera", "Peric", "12334567890"),
+      //               new User(1, "Laza", "Lazic", "0987654321")]
    }
 
    public getUsers(): Observable<User[]> {
@@ -24,7 +25,22 @@ export class UserService {
    }
 
    public fetchUsers(): Observable<User[]> {
-     this.users = this.http.get<User[]>(this.usersUrl)
+     this.users = this.http.get<User[]>(this.usersUrl, {
+       params: {
+
+       }, headers: {
+          Authorization: this.authorization
+       }
+     })
      return this.users
+   }
+
+   public removeUser(id: number){
+      let user = this.http.delete(this.usersUrl + '/' + id, {
+        params: {}, headers: {
+          Authorization: this.authorization
+        }
+      });
+     return user;
    }
 }

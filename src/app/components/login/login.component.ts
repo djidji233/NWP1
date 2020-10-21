@@ -11,16 +11,17 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup
-  
+
   constructor(private loginService: LoginService,
               private router: Router,
               private formBuilder: FormBuilder) {
-                
+
     this.loginForm = this.formBuilder.group({
       // Odgovarajuce HTML elemente cemo povezati atributom formControlName="..."
       // ['default value', [validators]
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4)]]
+      username: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+      duration: ['', Validators.required]
     })
   }
 
@@ -33,6 +34,10 @@ export class LoginComponent implements OnInit {
 
   public get password(){
     return this.loginForm.get('password')
+  }
+
+  public get duration(){
+    return this.loginForm.get('duration')
   }
 
   public submitForm(credentials){

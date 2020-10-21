@@ -22,14 +22,14 @@ export class LoginService implements OnDestroy {
     return this.http.get(this.loginUrl, {
       params: {
         username: credentials.username,
-        password: credentials.password
+        password: credentials.password,
+        duration: credentials.duration
       }, headers: {
-        
+
       }
     }).pipe(map( (responseData: Credentials) => {
         console.log(responseData)
         localStorage.setItem("jwt", responseData.JWT)
-        
     }))
   }
 
