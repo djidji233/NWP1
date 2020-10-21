@@ -1,0 +1,16 @@
+<h1>Users</h1>
+<hr>
+<table>
+    <tr>
+        <th>First name</th> 
+        <th>Last name</th> 
+        <th>Details</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <!-- rounterLink uzima za vrednost niz, prvi parametar u nizu je string, 
+            drugi je number i bice konkatenirani da bi se dobio url -->
+        <td><input type="button"  [routerLink]="['/users', user.id]" value="User details"></td>
+    </tr>
+</table>

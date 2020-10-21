@@ -1,0 +1,21 @@
+<div>
+    <h2>{{user.firstName}} {{user.lastName}}</h2>
+    <div>
+        <input type="button" value="Add to group" (click)="addToGroup(user)">
+    </div>
+    <div>
+        <input type="button" value="Show group members" (click)="showGroup()">
+        <input type="button" value="Clear group" (click)="clearGroup()">
+    </div>
+    <div>
+        All members:
+    </div>
+    <div *ngIf=" groupMembers.length > 0">
+        <table>
+            <tr *ngFor="let member of groupMembers">
+                <td>{{member.firstName}}</td>
+                <td>{{member.lastName}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
