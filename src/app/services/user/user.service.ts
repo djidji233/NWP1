@@ -49,16 +49,14 @@ export class UserService {
 
    public updateUser(credentials): Observable<User>{
       let user: Observable<User> = this.http.put<User>(this.usersUrl,{
-        body:{
           "id": credentials.userId,
           "firstName": credentials.userFirstName,
           "lastName": credentials.userLastName
-        }, headers: {
+        },{
+        headers: {
           Authorization: this.authorization
         }
       })
-
-      console.log("http PUT id="+credentials.userId)
       return user;
    }
 }
