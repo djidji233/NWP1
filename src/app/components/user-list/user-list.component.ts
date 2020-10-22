@@ -15,6 +15,10 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.fetch()
+  }
+
+  fetch() {
     this.userService.fetchUsers().subscribe(users => {
       console.log(users)
       this.users = users
@@ -27,10 +31,7 @@ export class UserListComponent implements OnInit {
       console.log(user)
       //index = this.users.indexOf(user)
     })
-    this.userService.fetchUsers().subscribe(users => {
-      console.log(users)
-      this.users = users
-    })
+    this.fetch()
     //this.users.splice(index,1)
   }
 
