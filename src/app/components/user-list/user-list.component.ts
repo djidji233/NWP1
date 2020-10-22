@@ -26,13 +26,10 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(id: number) {
-    //let index;
     this.userService.removeUser(id).subscribe(user => {
       console.log(user)
-      //index = this.users.indexOf(user)
+      this.fetch()
     })
-    this.fetch()
-    //this.users.splice(index,1)
   }
 
 }

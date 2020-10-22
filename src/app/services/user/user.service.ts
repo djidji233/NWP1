@@ -37,7 +37,9 @@ export class UserService {
 
    public removeUser(id: number): Observable<User>{
       let user: Observable<User> = this.http.delete<User>(this.usersUrl + '/' + id, {
-        params: {}, headers: {
+        params: {
+
+        }, headers: {
           Authorization: this.authorization
         }
       });

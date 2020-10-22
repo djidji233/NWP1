@@ -1,5 +1,3 @@
-<app-header></app-header>
-
 <h1>Users</h1>
 <hr>
 <table>
@@ -13,8 +11,8 @@
         <td>{{user.lastName}}</td>
         <!-- rounterLink uzima za vrednost niz, prvi parametar u nizu je string,
             drugi je number i bice konkatenirani da bi se dobio url -->
-        <td><input type="button" name="" value="Edit"></td>
+        <td><input type="button" value="Edit"></td>
         <td><input type="button" (click)="deleteUser(user.id)" value="Delete"></td>
-        <td><input type="button"  [routerLink]="['/users', user.id]" value="User details"></td>
+        <td><input type="button"  [routerLink]="['/users', user.id]" value="Details"></td>
     </tr>
 </table>

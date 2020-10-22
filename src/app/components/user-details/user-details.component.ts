@@ -11,7 +11,7 @@ import { GroupService } from 'src/app/services/group/group.service';
 })
 export class UserDetailsComponent implements OnInit {
 
-  public user: User
+  public user = new User(-1,"","")
   public groupMembers: User[]
 
   constructor(private userService: UserService,
@@ -24,7 +24,7 @@ export class UserDetailsComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       const id: number = Number(params.get('id'))
       console.log(id)
-      
+
       this.userService.getUsers().subscribe((users: User[]) => {
         console.log(users)
         this.user = users.filter(user => user.id === id)[0]
@@ -35,7 +35,7 @@ export class UserDetailsComponent implements OnInit {
   public addToGroup(user: User) {
     this.groupService.addMember(user)
   }
-  
+
   public showGroup() {
     this.groupMembers = this.groupService.getMembers()
   }
