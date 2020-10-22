@@ -35,12 +35,13 @@ export class UserService {
      return this.users
    }
 
-   public removeUser(id: number){
-      let user = this.http.delete(this.usersUrl + '/' + id, {
+   public removeUser(id: number): Observable<User>{
+      let user: Observable<User> = this.http.delete<User>(this.usersUrl + '/' + id, {
         params: {}, headers: {
           Authorization: this.authorization
         }
       });
-     return user;
+      console.log("http DELETE id="+id)
+      return user;
    }
 }

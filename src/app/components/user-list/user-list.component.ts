@@ -22,10 +22,16 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(id: number) {
+    //let index;
     this.userService.removeUser(id).subscribe(user => {
       console.log(user)
+      //index = this.users.indexOf(user)
     })
-    this.ngOnInit()
+    this.userService.fetchUsers().subscribe(users => {
+      console.log(users)
+      this.users = users
+    })
+    //this.users.splice(index,1)
   }
 
 }
