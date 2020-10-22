@@ -30,6 +30,8 @@ export class LoginService implements OnDestroy {
     }).pipe(map( (responseData: Credentials) => {
         console.log(responseData)
         localStorage.setItem("jwt", responseData.JWT)
+        localStorage.setItem("username", responseData.username)
+        //localStorage.setItem("time", new Date().toLocaleString("22/10/2016 11:49"))
     }))
   }
 

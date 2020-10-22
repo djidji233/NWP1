@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { LoginComponent } from './components/login/login.component';
+import {UserEditComponent} from './components/user-edit/user-edit.component';
 
 const routes: Routes = [
   // http://localhost:4200/
@@ -10,7 +11,9 @@ const routes: Routes = [
   // http://localhost:4200/home
   { path: 'home', component: UserListComponent},
   // http://localhost:4200/users
-  { path: 'users/:id', component: UserDetailsComponent}
+  { path: 'users/:id', component: UserDetailsComponent},
+  // http://localhost:4200/users/edit/
+  { path: 'users/edit/:id', component: UserEditComponent}
 ];
 
 @NgModule({

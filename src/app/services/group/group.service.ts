@@ -22,12 +22,12 @@ export class GroupService {
   }
 
   public addMember(user: User) {
-    if(!this.group.users.some(u => { return u.firstName === user.firstName })) { 
+    if(!this.group.users.some(u => { return u.firstName === user.firstName })) {
       // Ako .some vrati true, taj clan vec postoji u grupi i necemo ga dodati
       this.group.users.push(user)
     }
   }
-  
+
   public clearGroup(): void {
     this.group.users = []
   }

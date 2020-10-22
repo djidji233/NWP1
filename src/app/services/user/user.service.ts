@@ -46,4 +46,19 @@ export class UserService {
       console.log("http DELETE id="+id)
       return user;
    }
+
+   public updateUser(credentials): Observable<User>{
+      let user: Observable<User> = this.http.put<User>(this.usersUrl,{
+        body:{
+          "id": credentials.userId,
+          "firstName": credentials.userFirstName,
+          "lastName": credentials.userLastName
+        }, headers: {
+          Authorization: this.authorization
+        }
+      })
+
+      console.log("http PUT id="+credentials.userId)
+      return user;
+   }
 }
