@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import {HeaderComponent} from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { GroupsComponent } from './components/groups/groups.component';
+import { GroupDetailsComponent } from './components/group-details/group-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    UserEditComponent
+    UserEditComponent,
+    GroupsComponent,
+    GroupDetailsComponent
   ],
   imports: [
     BrowserModule,

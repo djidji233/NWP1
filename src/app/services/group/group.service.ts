@@ -48,4 +48,21 @@ export class GroupService {
 
     console.log(this.groups);
   }
+
+  public getAllGroups() {
+    return this.groups
+  }
+
+  public addUserToGroup(user: User, group: Group){
+    let groupNeeded = this.groups.find(gr => gr.groupName === group.groupName)
+    groupNeeded.users.push(user)
+    console.log(groupNeeded)
+  }
+
+  public getUsersFromGroup(grName: string){
+    let groupNeeded = this.groups.find(gr => gr.groupName === grName)
+    return groupNeeded.users
+  }
+
+
 }

@@ -1,21 +1,50 @@
+<style>
+  .dropbtn {
+    background-color: dimgray;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {background-color: #ddd;}
+
+  .dropdown:hover .dropdown-content {display: block;}
+
+  .dropdown:hover .dropbtn {background-color: dimgray;}
+</style>
+
+<app-header></app-header>
+
 <div>
-    <h2>{{user.firstName}} {{user.lastName}}</h2>
-    <div>
-        <input type="button" value="Add to group" (click)="addToGroup(user)">
+  <h2>{{user.firstName}} {{user.lastName}}</h2>
+
+  <div class="dropdown">
+    <button class="dropbtn">Choose group</button>
+    <div class="dropdown-content">
+      <a class="dropdown-item" *ngFor="let gr of groups" (click)="chosenGroup(gr)">Group {{gr.groupName}}</a>
     </div>
-    <div>
-        <input type="button" value="Show group members" (click)="showGroup()">
-        <input type="button" value="Clear group" (click)="clearGroup()">
-    </div>
-    <div>
-        All members:
-    </div>
-    <div *ngIf=" groupMembers.length > 0">
-        <table>
-            <tr *ngFor="let member of groupMembers">
-                <td>{{member.firstName}}</td>
-                <td>{{member.lastName}}</td>
-            </tr>
-        </table>
-    </div>
+  </div>
 </div>
+<app-footer></app-footer>
