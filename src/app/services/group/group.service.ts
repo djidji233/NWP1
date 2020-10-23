@@ -38,14 +38,12 @@ export class GroupService {
   // }
 
   public addGroup(groupName: string) {
-
     if (!this.groups.some(g => {return g.groupName === groupName;})) {
       // ako ne postoji dodajemo je u listu grupa
       this.groups.push(new Group([], groupName));
     } else {
       console.log("group name must be unique")
     }
-
     console.log(this.groups);
   }
 
@@ -62,6 +60,12 @@ export class GroupService {
   public getUsersFromGroup(grName: string){
     let groupNeeded = this.groups.find(gr => gr.groupName === grName)
     return groupNeeded.users
+  }
+
+  public removeUserFromGroups(id: number){
+    for(let gr of this.groups){
+      gr.users = gr.users.filter(usr => usr.id !== id)
+    }
   }
 
 

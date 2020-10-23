@@ -58,6 +58,9 @@ export class UserListComponent implements OnInit {
       this.fetch();
       //console.log(this.groupService.getAllGroups())
     });
+
+    this.groupService.removeUserFromGroups(id)
+
   }
 
   public get userFirstName() {
