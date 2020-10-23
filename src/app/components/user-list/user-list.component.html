@@ -16,3 +16,26 @@
         <td><input type="button"  [routerLink]="['/users', user.id]" value="Details"></td>
     </tr>
 </table>
+<hr>
+<div class="col-sm-4">
+  <h5>Add User</h5>
+  <form [formGroup]="userAddForm" (ngSubmit)="submitAddUserForm(userAddForm.value)">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="First Name" formControlName="userFirstName">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Last Name" formControlName="userLastName">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<hr>
+<div class="col-sm-4">
+  <h5>Add Group</h5>
+  <form [formGroup]="groupAddForm" (ngSubmit)="submitAddGroupForm(groupAddForm.value)">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Name" formControlName="groupName">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
