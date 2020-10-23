@@ -53,7 +53,10 @@ export class GroupService {
 
   public addUserToGroup(user: User, group: Group){
     let groupNeeded = this.groups.find(gr => gr.groupName === group.groupName)
-    groupNeeded.users.push(user)
+
+    if(!groupNeeded.users.some(u => {return u.id === user.id;})) {
+      groupNeeded.users.push(user)
+    }
     console.log(groupNeeded)
   }
 

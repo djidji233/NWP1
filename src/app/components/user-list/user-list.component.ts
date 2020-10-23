@@ -56,7 +56,6 @@ export class UserListComponent implements OnInit {
     this.userService.removeUser(id).subscribe(user => {
       console.log(user);
       this.fetch();
-      //console.log(this.groupService.getAllGroups())
     });
 
     this.groupService.removeUserFromGroups(id)
