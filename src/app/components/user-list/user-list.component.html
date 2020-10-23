@@ -1,22 +1,24 @@
 <app-header></app-header>
-<h1>Users</h1>
-<hr>
-<table>
+<div class="col-sm-4">
+  <h1>Users</h1>
+  <hr>
+  <table>
     <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Details</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Details</th>
     </tr>
     <tr *ngFor="let user of users">
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
-        <!-- rounterLink uzima za vrednost niz, prvi parametar u nizu je string,
-            drugi je number i bice konkatenirani da bi se dobio url -->
-        <td><input type="button" [routerLink]="['/users/edit',user.id]" value="Edit"></td>
-        <td><input type="button" (click)="deleteUser(user.id)" value="Delete"></td>
-        <td><input type="button"  [routerLink]="['/users', user.id]" value="Details"></td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <!-- rounterLink uzima za vrednost niz, prvi parametar u nizu je string,
+          drugi je number i bice konkatenirani da bi se dobio url -->
+      <td><input type="button" [routerLink]="['/users/edit',user.id]" value="Edit"></td>
+      <td><input type="button" (click)="deleteUser(user.id)" value="Delete"></td>
+      <td><input type="button"  [routerLink]="['/users', user.id]" value="Details"></td>
     </tr>
-</table>
+  </table>
+</div>
 <hr>
 <div class="col-sm-4">
   <h5>Add User</h5>

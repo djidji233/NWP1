@@ -1,11 +1,11 @@
 <app-header></app-header>
 
-<div>
+<div class="col-sm-4">
   <h2>{{user.firstName}} {{user.lastName}}</h2>
 
   <div class="dropdown">
-    <button class="dropbtn">Choose group</button>
-    <div class="dropdown-content">
+    <button class="dropbtn" (click)="showDropdown()">Choose group</button>
+    <div class="dropdown-content" id="dropdownContent">
       <a class="dropdown-item" *ngFor="let gr of groups" (click)="chosenGroup(gr)">Group {{gr.groupName}}</a>
     </div>
   </div>

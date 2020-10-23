@@ -35,6 +35,13 @@ export class UserDetailsComponent implements OnInit {
 
   chosenGroup(group: Group) {
     this.groupService.addUserToGroup(this.user, group);
+    let el: HTMLElement = document.getElementById('dropdownContent');
+    el.hidden= true;
+  }
+
+  showDropdown(){
+    let el: HTMLElement = document.getElementById('dropdownContent');
+    el.hidden= false;
   }
 
 }
